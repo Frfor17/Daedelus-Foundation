@@ -53,7 +53,6 @@ GLOBAL_LIST_INIT(job_display_order, list(
 	/datum/job/logistics_technician,
 	// Other
 	/datum/job/botanist,
-	/datum/job/cook,
 	/datum/job/chaplain,
 	/datum/job/janitor,
 	/datum/job/clown,

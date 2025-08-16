@@ -3,6 +3,7 @@
 	var/short_name = ""
 	var/creator_info = ""
 
+
 /datum/employer/scp
 	name = "The SCP Foundation"
 	short_name = "Foundation"
@@ -85,7 +86,3 @@
 	short_name = "Horizon"
 	creator_info = "The 'Horizon Initiative' is a Group of Interest comprised of influential religious sects from the three major Abrahamic religions, formed to actively seek out and either retrieve or destroy anomalous objects they perceive as threats based on their religious dogma."
 
-/datum/employer/none
-	name = "None"
-	short_name = "None"
-	creator_info = "The lone wolf. Solumn wonderer. Average joe."

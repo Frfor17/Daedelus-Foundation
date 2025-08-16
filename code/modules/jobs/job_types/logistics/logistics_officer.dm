@@ -14,6 +14,7 @@
 
 	employers = list(
 		/datum/employer/scp
+
 	)
 
 	outfits = list(
