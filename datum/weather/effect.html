@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <base href="../../" />
+    <link rel="stylesheet" href="dmdoc.css" />
+    <title>&#x2F;datum&#x2F;weather&#x2F;effect - Daedalus Dock</title>
+</head>
+<body>
+<header>
+    <a href="index.html">Daedalus Dock</a> -
+    <a href="index.html#modules">Modules</a> -
+    <a href="index.html#types">Types</a>
+ &mdash; <a href="datum/weather/effect.html#var">Var Details</a></header>
+<main>
+<h1>effect <aside>/<a href="datum.html">datum</a>/<a href="datum/weather.html">weather</a>/<a href="datum/weather/effect.html">effect</a></aside>
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather_effects.dm#L42">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather_effects.dm 42"/></a></h1>
+
+<table class="summary" cellspacing="0"><tr><td colspan="2"><h2>Vars</h2></td></tr>
+            <tr><th><a href="datum/weather/effect.html#var/affects_areas">affects_areas</a></th><td>Whether this effect affects areas.</td></tr>
+            <tr><th><a href="datum/weather/effect.html#var/affects_mobs">affects_mobs</a></th><td>Whether this effect affects mobs.</td></tr>
+            <tr><th><a href="datum/weather/effect.html#var/affects_objects">affects_objects</a></th><td>Whether this effect affects objects.</td></tr>
+            <tr><th><a href="datum/weather/effect.html#var/cooldown">cooldown</a></th><td>Time before the effect can be reapplied, ticks in the subsystem.</td></tr>
+            <tr><th><a href="datum/weather/effect.html#var/cooldown_max">cooldown_max</a></th><td>Maximum cooldown time for an effect, used to reset the cooldown after it has expired.</td></tr>
+            <tr><th><a href="datum/weather/effect.html#var/duration">duration</a></th><td>How long the effect lasts, where relevant.</td></tr>
+            <tr><th><a href="datum/weather/effect.html#var/needs_overlay_cleanup">needs_overlay_cleanup</a></th><td>Set to TRUE if this effect manages its own visual overlays (I.E: Fog)</td></tr>
+            <tr><th><a href="datum/weather/effect.html#var/needs_sound_cleanup">needs_sound_cleanup</a></th><td>Set to TRUE if this effect manages its own looping sounds</td></tr>
+            <tr><th><a href="datum/weather/effect.html#var/severity">severity</a></th><td>This effect's current severity, initialized from the global weather profile. Determines intensity of various effects. Local to effects but initialized from active weather profile.</td></tr>
+            <tr><th><a href="datum/weather/effect.html#var/tick_interval">tick_interval</a></th><td>How often an effect &quot;ticks&quot; in the weather subsystem (cooldown is only reduced when a effect ticks)</td></tr></table>
+    <h2 id="var">Var Details</h2><h3 id="var/affects_areas"><aside class="declaration">var </aside>affects_areas
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather_effects.dm#L56">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather_effects.dm 56"/></a></h3>
+        <p>Whether this effect affects areas.</p><h3 id="var/affects_mobs"><aside class="declaration">var </aside>affects_mobs
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather_effects.dm#L58">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather_effects.dm 58"/></a></h3>
+        <p>Whether this effect affects mobs.</p><h3 id="var/affects_objects"><aside class="declaration">var </aside>affects_objects
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather_effects.dm#L60">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather_effects.dm 60"/></a></h3>
+        <p>Whether this effect affects objects.</p><h3 id="var/cooldown"><aside class="declaration">var </aside>cooldown
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather_effects.dm#L47">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather_effects.dm 47"/></a></h3>
+        <p>Time before the effect can be reapplied, ticks in the subsystem.</p><h3 id="var/cooldown_max"><aside class="declaration">var </aside>cooldown_max
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather_effects.dm#L49">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather_effects.dm 49"/></a></h3>
+        <p>Maximum cooldown time for an effect, used to reset the cooldown after it has expired.</p><h3 id="var/duration"><aside class="declaration">var </aside>duration
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather_effects.dm#L45">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather_effects.dm 45"/></a></h3>
+        <p>How long the effect lasts, where relevant.</p><h3 id="var/needs_overlay_cleanup"><aside class="declaration">var </aside>needs_overlay_cleanup
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather_effects.dm#L64">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather_effects.dm 64"/></a></h3>
+        <p>Set to TRUE if this effect manages its own visual overlays (I.E: Fog)</p><h3 id="var/needs_sound_cleanup"><aside class="declaration">var </aside>needs_sound_cleanup
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather_effects.dm#L66">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather_effects.dm 66"/></a></h3>
+        <p>Set to TRUE if this effect manages its own looping sounds</p><h3 id="var/severity"><aside class="declaration">var </aside>severity
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather_effects.dm#L62">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather_effects.dm 62"/></a></h3>
+        <p>This effect's current severity, initialized from the global weather profile. Determines intensity of various effects. Local to effects but initialized from active weather profile.</p><h3 id="var/tick_interval"><aside class="declaration">var </aside>tick_interval
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather_effects.dm#L51">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather_effects.dm 51"/></a></h3>
+        <p>How often an effect &quot;ticks&quot; in the weather subsystem (cooldown is only reduced when a effect ticks)</p></main>
+<footer>
+    daedalus.dme
+    <a href="https://github.com/Foundation-19/Daedelus-Foundation/tree/3b0414b6ae654fa1d24dec761a41b5a4b13e1797">3b0414b</a>
+        (master) &mdash; <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.8.0</a></footer>
+</body>
+</html>

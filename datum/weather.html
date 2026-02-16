@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <base href="../" />
+    <link rel="stylesheet" href="dmdoc.css" />
+    <title>&#x2F;datum&#x2F;weather - Daedalus Dock</title>
+</head>
+<body>
+<header>
+    <a href="index.html">Daedalus Dock</a> -
+    <a href="index.html#modules">Modules</a> -
+    <a href="index.html#types">Types</a>
+ &mdash; <a href="datum/weather.html#var">Var Details</a> - <a href="datum/weather.html#proc">Proc Details</a></header>
+<main>
+<h1>weather <aside>/<a href="datum.html">datum</a>/<a href="datum/weather.html">weather</a></aside>
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather.dm#L22">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather.dm 22"/></a></h1>
+
+<table class="summary" cellspacing="0"><tr><td colspan="2"><h2>Vars</h2></td></tr>
+            <tr><th><a href="datum/weather.html#var/aesthetic">aesthetic</a></th><td>If the weather has no purpose other than looks</td></tr>
+            <tr><th><a href="datum/weather.html#var/barometer_predictable">barometer_predictable</a></th><td>Whether a barometer can predict when the weather will happen</td></tr>
+            <tr><th><a href="datum/weather.html#var/center_turf">center_turf</a></th><td>Central turf of a storm's influence. Really only relevant if radius is not -1</td></tr>
+            <tr><th><a href="datum/weather.html#var/desc">desc</a></th><td>description of weather</td></tr>
+            <tr><th><a href="datum/weather.html#var/end_duration">end_duration</a></th><td>In deciseconds, how long the &quot;wind-down&quot; graphic will appear before vanishing entirely</td></tr>
+            <tr><th><a href="datum/weather.html#var/end_message">end_message</a></th><td>Displayed once the weather is over</td></tr>
+            <tr><th><a href="datum/weather.html#var/end_overlay">end_overlay</a></th><td>Area overlay while weather is ending</td></tr>
+            <tr><th><a href="datum/weather.html#var/end_sound">end_sound</a></th><td>Sound that plays while weather is ending</td></tr>
+            <tr><th><a href="datum/weather.html#var/immunity_type">immunity_type</a></th><td>Used by mobs (or movables containing mobs, such as enviro bags) to prevent them from being affected by the weather.</td></tr>
+            <tr><th><a href="datum/weather.html#var/impacted_z_levels">impacted_z_levels</a></th><td>The list of z-levels that this weather is actively affecting</td></tr>
+            <tr><th><a href="datum/weather.html#var/max_effects">max_effects</a></th><td>The maximum number of weather effects that can be picked for a given storm.</td></tr>
+            <tr><th><a href="datum/weather.html#var/mobs_with_ambient_sound">mobs_with_ambient_sound</a></th><td>List of mobs currently playing ambient sounds for this weather datum</td></tr>
+            <tr><th><a href="datum/weather.html#var/name">name</a></th><td>name of weather</td></tr>
+            <tr><th><a href="datum/weather.html#var/next_hit_time">next_hit_time</a></th><td>For barometers to know when the next storm will hit</td></tr>
+            <tr><th><a href="datum/weather.html#var/overlay_cache">overlay_cache</a></th><td>List of all overlays to apply to our turfs</td></tr>
+            <tr><th><a href="datum/weather.html#var/overlay_layer">overlay_layer</a></th><td>Since it's above everything else, this is the layer used by default. TURF_LAYER is below mobs and walls if you need to use that.</td></tr>
+            <tr><th><a href="datum/weather.html#var/overlay_plane">overlay_plane</a></th><td>Plane for the overlay</td></tr>
+            <tr><th><a href="datum/weather.html#var/perpetual">perpetual</a></th><td>This causes the weather to only end if forced to</td></tr>
+            <tr><th><a href="datum/weather.html#var/probability">probability</a></th><td>Weight amongst other eligible weather. If zero, will never happen randomly.</td></tr>
+            <tr><th><a href="datum/weather.html#var/radius_in_chunks">radius_in_chunks</a></th><td>The radius of influence for this storm, -1 = entire map</td></tr>
+            <tr><th><a href="datum/weather.html#var/sound_channel">sound_channel</a></th><td>Unique channel for ambient weather sounds to allow stopping them</td></tr>
+            <tr><th><a href="datum/weather.html#var/stage">stage</a></th><td>The stage of the weather, from 1-4</td></tr>
+            <tr><th><a href="datum/weather.html#var/target_trait">target_trait</a></th><td>The z-level trait to affect when run randomly or when not overridden.</td></tr>
+            <tr><th><a href="datum/weather.html#var/telegraph_duration">telegraph_duration</a></th><td>In deciseconds, how long from the beginning of the telegraph until the weather begins</td></tr>
+            <tr><th><a href="datum/weather.html#var/telegraph_message">telegraph_message</a></th><td>The message displayed in chat to foreshadow the weather's beginning</td></tr>
+            <tr><th><a href="datum/weather.html#var/telegraph_overlay">telegraph_overlay</a></th><td>The overlay applied to all tiles on the z-level</td></tr>
+            <tr><th><a href="datum/weather.html#var/telegraph_sound">telegraph_sound</a></th><td>The sound file played to everyone on an affected z-level</td></tr>
+            <tr><th><a href="datum/weather.html#var/use_glow">use_glow</a></th><td>If this bit of weather should also draw an overlay that's uneffected by lighting onto the area
+Taken from weather_glow.dmi</td></tr>
+            <tr><th><a href="datum/weather.html#var/weather_color">weather_color</a></th><td>Color to apply to the area while weather is occuring</td></tr>
+            <tr><th><a href="datum/weather.html#var/weather_duration">weather_duration</a></th><td>In deciseconds, how long the weather lasts once it begins</td></tr>
+            <tr><th><a href="datum/weather.html#var/weather_duration_lower">weather_duration_lower</a></th><td>See above - this is the lowest possible duration</td></tr>
+            <tr><th><a href="datum/weather.html#var/weather_duration_upper">weather_duration_upper</a></th><td>See above - this is the highest possible duration</td></tr>
+            <tr><th><a href="datum/weather.html#var/weather_effects">weather_effects</a></th><td>Override to effect list in each weather type, can also be overriden in the map config.</td></tr>
+            <tr><th><a href="datum/weather.html#var/weather_message">weather_message</a></th><td>Displayed in chat once the weather begins in earnest</td></tr>
+            <tr><th><a href="datum/weather.html#var/weather_overlay">weather_overlay</a></th><td>Area overlay while the weather is occuring</td></tr>
+            <tr><th><a href="datum/weather.html#var/weather_sound">weather_sound</a></th><td>Looping sound while weather is occuring</td></tr>
+            <tr><th><a href="datum/weather.html#var/wind_direction">wind_direction</a></th><td>Mechanical Weather effects applied to this weather_type which are applied to mobs. (Wind Gust, lightning, etc)
+Wind direction, passed from weather profile.</td></tr><tr><td colspan="2"><h2>Procs</h2></td></tr>
+            <tr><th><a href="datum/weather.html#proc/can_weather_act">can_weather_act</a></th><td>Returns TRUE if the living mob can be affected by the weather</td></tr>
+            <tr><th><a href="datum/weather.html#proc/check_mob_ambient_sound">check_mob_ambient_sound</a></th><td>Checks if a mob should be hearing ambient weather sounds and plays/stops them accordingly.</td></tr>
+            <tr><th><a href="datum/weather.html#proc/end">end</a></th><td>Fully ends the weather</td></tr>
+            <tr><th><a href="datum/weather.html#proc/generate_overlay_cache">generate_overlay_cache</a></th><td>Returns a list of visual offset -&gt; overlays to use</td></tr>
+            <tr><th><a href="datum/weather.html#proc/handle_mob_moved">handle_mob_moved</a></th><td>Signal handler for mob movement.</td></tr>
+            <tr><th><a href="datum/weather.html#proc/select_weather_effects">select_weather_effects</a></th><td>Selects random weather effects from the allowed list at the beginning of the storm.</td></tr>
+            <tr><th><a href="datum/weather.html#proc/start">start</a></th><td>Starts the actual weather and effects from it</td></tr>
+            <tr><th><a href="datum/weather.html#proc/telegraph">telegraph</a></th><td>Telegraphs the beginning of the weather on the impacted z levels</td></tr>
+            <tr><th><a href="datum/weather.html#proc/update_turf_overlays">update_turf_overlays</a></th><td>Updates the overlays on impacted areas</td></tr>
+            <tr><th><a href="datum/weather.html#proc/weather_act">weather_act</a></th><td>A hook for weather_types to apply specific effects that can't be captured in these generic effects.</td></tr>
+            <tr><th><a href="datum/weather.html#proc/wind_down">wind_down</a></th><td>Weather enters the winding down phase, stops effects</td></tr></table>
+    <h2 id="var">Var Details</h2><h3 id="var/aesthetic"><aside class="declaration">var </aside>aesthetic
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather.dm#L72">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather.dm 72"/></a></h3>
+        <p>If the weather has no purpose other than looks</p><h3 id="var/barometer_predictable"><aside class="declaration">var </aside>barometer_predictable
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather.dm#L90">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather.dm 90"/></a></h3>
+        <p>Whether a barometer can predict when the weather will happen</p><h3 id="var/center_turf"><aside class="declaration">var </aside>center_turf
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather.dm#L109">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather.dm 109"/></a></h3>
+        <p>Central turf of a storm's influence. Really only relevant if radius is not -1</p><h3 id="var/desc"><aside class="declaration">var </aside>desc
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather.dm#L26">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather.dm 26"/></a></h3>
+        <p>description of weather</p><h3 id="var/end_duration"><aside class="declaration">var </aside>end_duration
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather.dm#L58">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather.dm 58"/></a></h3>
+        <p>In deciseconds, how long the &quot;wind-down&quot; graphic will appear before vanishing entirely</p><h3 id="var/end_message"><aside class="declaration">var </aside>end_message
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather.dm#L56">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather.dm 56"/></a></h3>
+        <p>Displayed once the weather is over</p><h3 id="var/end_overlay"><aside class="declaration">var </aside>end_overlay
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather.dm#L62">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather.dm 62"/></a></h3>
+        <p>Area overlay while weather is ending</p><h3 id="var/end_sound"><aside class="declaration">var </aside>end_sound
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather.dm#L60">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather.dm 60"/></a></h3>
+        <p>Sound that plays while weather is ending</p><h3 id="var/immunity_type"><aside class="declaration">var </aside>immunity_type
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather.dm#L74">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather.dm 74"/></a></h3>
+        <p>Used by mobs (or movables containing mobs, such as enviro bags) to prevent them from being affected by the weather.</p><h3 id="var/impacted_z_levels"><aside class="declaration">var </aside>impacted_z_levels
+            <aside>&ndash; /list</aside>
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather.dm#L65">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather.dm 65"/></a></h3>
+        <p>The list of z-levels that this weather is actively affecting</p><h3 id="var/max_effects"><aside class="declaration">var </aside>max_effects
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather.dm#L103">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather.dm 103"/></a></h3>
+        <p>The maximum number of weather effects that can be picked for a given storm.</p><h3 id="var/mobs_with_ambient_sound"><aside class="declaration">var </aside>mobs_with_ambient_sound
+            <aside>&ndash; /list</aside>
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather.dm#L49">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather.dm 49"/></a></h3>
+        <p>List of mobs currently playing ambient sounds for this weather datum</p><h3 id="var/name"><aside class="declaration">var </aside>name
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather.dm#L24">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather.dm 24"/></a></h3>
+        <p>name of weather</p><h3 id="var/next_hit_time"><aside class="declaration">var </aside>next_hit_time
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather.dm#L92">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather.dm 92"/></a></h3>
+        <p>For barometers to know when the next storm will hit</p><h3 id="var/overlay_cache"><aside class="declaration">var </aside>overlay_cache
+            <aside>&ndash; /list</aside>
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather.dm#L79">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather.dm 79"/></a></h3>
+        <p>List of all overlays to apply to our turfs</p><h3 id="var/overlay_layer"><aside class="declaration">var </aside>overlay_layer
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather.dm#L68">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather.dm 68"/></a></h3>
+        <p>Since it's above everything else, this is the layer used by default. TURF_LAYER is below mobs and walls if you need to use that.</p><h3 id="var/overlay_plane"><aside class="declaration">var </aside>overlay_plane
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather.dm#L70">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather.dm 70"/></a></h3>
+        <p>Plane for the overlay</p><h3 id="var/perpetual"><aside class="declaration">var </aside>perpetual
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather.dm#L94">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather.dm 94"/></a></h3>
+        <p>This causes the weather to only end if forced to</p><h3 id="var/probability"><aside class="declaration">var </aside>probability
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather.dm#L85">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather.dm 85"/></a></h3>
+        <p>Weight amongst other eligible weather. If zero, will never happen randomly.</p><h3 id="var/radius_in_chunks"><aside class="declaration">var </aside>radius_in_chunks
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather.dm#L105">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather.dm 105"/></a></h3>
+        <p>The radius of influence for this storm, -1 = entire map</p><h3 id="var/sound_channel"><aside class="declaration">var </aside>sound_channel
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather.dm#L47">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather.dm 47"/></a></h3>
+        <p>Unique channel for ambient weather sounds to allow stopping them</p><h3 id="var/stage"><aside class="declaration">var </aside>stage
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather.dm#L82">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather.dm 82"/></a></h3>
+        <p>The stage of the weather, from 1-4</p><h3 id="var/target_trait"><aside class="declaration">var </aside>target_trait
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather.dm#L87">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather.dm 87"/></a></h3>
+        <p>The z-level trait to affect when run randomly or when not overridden.</p><h3 id="var/telegraph_duration"><aside class="declaration">var </aside>telegraph_duration
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather.dm#L30">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather.dm 30"/></a></h3>
+        <p>In deciseconds, how long from the beginning of the telegraph until the weather begins</p><h3 id="var/telegraph_message"><aside class="declaration">var </aside>telegraph_message
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather.dm#L28">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather.dm 28"/></a></h3>
+        <p>The message displayed in chat to foreshadow the weather's beginning</p><h3 id="var/telegraph_overlay"><aside class="declaration">var </aside>telegraph_overlay
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather.dm#L34">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather.dm 34"/></a></h3>
+        <p>The overlay applied to all tiles on the z-level</p><h3 id="var/telegraph_sound"><aside class="declaration">var </aside>telegraph_sound
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather.dm#L32">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather.dm 32"/></a></h3>
+        <p>The sound file played to everyone on an affected z-level</p><h3 id="var/use_glow"><aside class="declaration">var </aside>use_glow
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather.dm#L77">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather.dm 77"/></a></h3>
+        <p>If this bit of weather should also draw an overlay that's uneffected by lighting onto the area
+Taken from weather_glow.dmi</p><h3 id="var/weather_color"><aside class="declaration">var </aside>weather_color
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather.dm#L53">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather.dm 53"/></a></h3>
+        <p>Color to apply to the area while weather is occuring</p><h3 id="var/weather_duration"><aside class="declaration">var </aside>weather_duration
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather.dm#L39">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather.dm 39"/></a></h3>
+        <p>In deciseconds, how long the weather lasts once it begins</p><h3 id="var/weather_duration_lower"><aside class="declaration">var </aside>weather_duration_lower
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather.dm#L41">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather.dm 41"/></a></h3>
+        <p>See above - this is the lowest possible duration</p><h3 id="var/weather_duration_upper"><aside class="declaration">var </aside>weather_duration_upper
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather.dm#L43">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather.dm 43"/></a></h3>
+        <p>See above - this is the highest possible duration</p><h3 id="var/weather_effects"><aside class="declaration">var </aside>weather_effects
+            <aside>&ndash; /list</aside>
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather.dm#L101">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather.dm 101"/></a></h3>
+        <p>Override to effect list in each weather type, can also be overriden in the map config.</p><h3 id="var/weather_message"><aside class="declaration">var </aside>weather_message
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather.dm#L37">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather.dm 37"/></a></h3>
+        <p>Displayed in chat once the weather begins in earnest</p><h3 id="var/weather_overlay"><aside class="declaration">var </aside>weather_overlay
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather.dm#L51">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather.dm 51"/></a></h3>
+        <p>Area overlay while the weather is occuring</p><h3 id="var/weather_sound"><aside class="declaration">var </aside>weather_sound
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather.dm#L45">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather.dm 45"/></a></h3>
+        <p>Looping sound while weather is occuring</p><h3 id="var/wind_direction"><aside class="declaration">var </aside>wind_direction
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather.dm#L99">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather.dm 99"/></a></h3>
+        <p>Mechanical Weather effects applied to this weather_type which are applied to mobs. (Wind Gust, lightning, etc)
+Wind direction, passed from weather profile.</p><h2 id="proc">Proc Details</h2><h3 id="proc/can_weather_act"><aside class="declaration">proc </aside>can_weather_act<aside>(/<a href="mob.html">mob</a>/<a href="mob/living.html">living</a>/mob_to_check) 
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather.dm#L288">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather.dm 288"/></a></aside>
+        </h3>
+        <p>Returns TRUE if the living mob can be affected by the weather</p><h3 id="proc/check_mob_ambient_sound"><aside class="declaration">proc </aside>check_mob_ambient_sound<aside>(/<a href="mob.html">mob</a>/<a href="mob/living.html">living</a>/M) 
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather.dm#L319">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather.dm 319"/></a></aside>
+        </h3>
+        <p>Checks if a mob should be hearing ambient weather sounds and plays/stops them accordingly.</p><h3 id="proc/end"><aside class="declaration">proc </aside>end<aside>() 
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather.dm#L244">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather.dm 244"/></a></aside>
+        </h3>
+        <p>Fully ends the weather</p>
+<p>Effects no longer occur and area overlays are removed
+Removes weather from processing completely</p><h3 id="proc/generate_overlay_cache"><aside class="declaration">proc </aside>generate_overlay_cache<aside>() 
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather.dm#L388">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather.dm 388"/></a></aside>
+        </h3>
+        <p>Returns a list of visual offset -&gt; overlays to use</p><h3 id="proc/handle_mob_moved"><aside class="declaration">proc </aside>handle_mob_moved<aside>(/<a href="mob.html">mob</a>/<a href="mob/living.html">living</a>/M, /<a href="turf.html">turf</a>/old_loc, /<a href="turf.html">turf</a>/new_loc) 
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather.dm#L313">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather.dm 313"/></a></aside>
+        </h3>
+        <p>Signal handler for mob movement.</p><h3 id="proc/select_weather_effects"><aside class="declaration">proc </aside>select_weather_effects<aside>() 
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather.dm#L429">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather.dm 429"/></a></aside>
+        </h3>
+        <p>Selects random weather effects from the allowed list at the beginning of the storm.</p><h3 id="proc/start"><aside class="declaration">proc </aside>start<aside>() 
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather.dm#L189">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather.dm 189"/></a></aside>
+        </h3>
+        <p>Starts the actual weather and effects from it</p>
+<p>Updates area overlays and sends sounds and messages to mobs to notify them
+Begins dealing effects from weather to mobs in the area</p><h3 id="proc/telegraph"><aside class="declaration">proc </aside>telegraph<aside>(get_to_the_good_part) 
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather.dm#L164">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather.dm 164"/></a></aside>
+        </h3>
+        <p>Telegraphs the beginning of the weather on the impacted z levels</p>
+<p>Sends sounds and details to mobs in the area
+Calculates duration and hit areas, and makes a callback for the actual weather to start</p><h3 id="proc/update_turf_overlays"><aside class="declaration">proc </aside>update_turf_overlays<aside>() 
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather.dm#L366">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather.dm 366"/></a></aside>
+        </h3>
+        <p>Updates the overlays on impacted areas</p><h3 id="proc/weather_act"><aside class="declaration">proc </aside>weather_act<aside>(/<a href="mob.html">mob</a>/<a href="mob/living.html">living</a>/L, /<a href="obj.html">obj</a>/O) 
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather.dm#L358">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather.dm 358"/></a></aside>
+        </h3>
+        <p>A hook for weather_types to apply specific effects that can't be captured in these generic effects.</p><h3 id="proc/wind_down"><aside class="declaration">proc </aside>wind_down<aside>() 
+        
+    
+            <a href="https://github.com/Foundation-19/Daedelus-Foundation/blob/3b0414b6ae654fa1d24dec761a41b5a4b13e1797/code/datums/weather/weather.dm#L224">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weather&#x2F;weather.dm 224"/></a></aside>
+        </h3>
+        <p>Weather enters the winding down phase, stops effects</p>
+<p>Updates areas to be in the winding down phase
+Sends sounds and messages to mobs to notify them</p></main>
+<footer>
+    daedalus.dme
+    <a href="https://github.com/Foundation-19/Daedelus-Foundation/tree/3b0414b6ae654fa1d24dec761a41b5a4b13e1797">3b0414b</a>
+        (master) &mdash; <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.8.0</a></footer>
+</body>
+</html>
